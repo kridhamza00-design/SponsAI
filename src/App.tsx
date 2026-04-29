@@ -7,6 +7,11 @@ import LandingPage from './pages/Landing';
 import AuthPage from './pages/Auth';
 import OnboardingPage from './pages/Onboarding';
 import DashboardPage from './pages/Dashboard';
+import EventsIndex from './pages/EventsIndex';
+import EventCreate from './pages/EventCreate';
+import EventDetail from './pages/EventDetail';
+import WarRoomIndex from './pages/WarRoomIndex';
+import WarRoomChat from './pages/WarRoomChat';
 
 // Components
 import AppShell from './components/layout/AppShell';
@@ -75,9 +80,12 @@ function AppRoutes() {
               <AppShell>
                 <Routes>
                   <Route path="dashboard" element={<DashboardPage />} />
-                  <Route path="events" element={<div className="p-8 mt-12"><h1 className="text-5xl font-display font-bold">Événements</h1><p className="text-brand-ink/40 mt-4 font-medium italic">Bientôt disponible en Phase 2</p></div>} />
-                  <Route path="warroom" element={<div className="p-8 mt-12"><h1 className="text-5xl font-display font-bold">War Room</h1><p className="text-brand-ink/40 mt-4 font-medium italic">Bientôt disponible en Phase 2</p></div>} />
-                  <Route path="settings" element={<div className="p-8 mt-12"><h1 className="text-5xl font-display font-bold">Paramètres</h1><p className="text-brand-ink/40 mt-4 font-medium italic">Bientôt disponible en Phase 2</p></div>} />
+                  <Route path="events" element={<EventsIndex />} />
+                  <Route path="events/create" element={<EventCreate />} />
+                  <Route path="events/:id" element={<EventDetail />} />
+                  <Route path="warroom" element={<WarRoomIndex />} />
+                  <Route path="warroom/:id" element={<WarRoomChat />} />
+                  <Route path="settings" element={<div className="p-8 mt-12"><h1 className="text-5xl font-display font-bold">Paramètres</h1><p className="text-brand-ink/40 mt-4 font-medium italic">Bientôt disponible en Phase 3</p></div>} />
                   <Route path="*" element={<Navigate to="/app/dashboard" />} />
                 </Routes>
               </AppShell>
