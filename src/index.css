@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", serif;
+
+  --color-brand-cream: #FBFAF7;
+  --color-brand-ink: #0E1B14;
+  --color-brand-emerald: #10B981;
+  --color-brand-emerald-dark: #059669;
+  --color-brand-surface: #ffffff;
+  
+  --color-dark-bg: #0E1410;
+  --color-dark-surface: #161D18;
+  --color-dark-text: #F3F4ED;
+
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-3xl: 24px;
+}
+
+@layer base {
+  body {
+    @apply font-sans antialiased text-brand-ink bg-brand-cream;
+  }
+
+  .dark body {
+    @apply text-dark-text bg-dark-bg;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display text-brand-ink;
+  }
+  
+  .dark h1, .dark h2, .dark h3 {
+    @apply text-dark-text;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-brand-ink/5 shadow-sm;
+  }
+
+  .dark .glass-card {
+    @apply bg-dark-surface/80 border-white/5;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-brand-emerald text-white font-bold rounded-xl transition-all hover:bg-brand-emerald-dark active:scale-95 shadow-sm;
+  }
+
+  .ai-badge {
+    @apply inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-gradient-to-r from-brand-emerald/20 to-emerald-400/20 border border-brand-emerald/30 text-brand-emerald-dark dark:text-brand-emerald;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
